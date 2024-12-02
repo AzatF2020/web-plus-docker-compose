@@ -1,12 +1,12 @@
-FROM node:18.20-alpine
+FROM node:18-alpine
 
 RUN apk update && apk add bash
 
-WORKDIR /var/www/backend
+WORKDIR /app
 
 COPY package*.json .
 
-RUN npm install
+RUN npm i
 
 COPY . .
 
