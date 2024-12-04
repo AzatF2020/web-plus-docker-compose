@@ -3,6 +3,8 @@ FROM node:16-alpine AS builder
 
 RUN apk update && apk add bash
 
+ARG NODE_PATH
+
 WORKDIR /var/www/frontend
 
 COPY package*.json .
@@ -13,10 +15,17 @@ COPY . .
 
 RUN npm run build
 
-FROM builder as development
+# Development stage
+FROM builder AS development
+
+RUN npm install --only-development
+
+CMD [ "npm", "run", "start" ]
 
 # Production runner stage
-FROM nginx:alpine as runner
+FROM nginx:alpine AS runner
+
+RUN apk update && apk add bash
 
 WORKDIR /var/www/frontend
 

@@ -1,4 +1,7 @@
-export const URL = "https://api.kupipodary.nomorepartiesco.ru";
+export const URL =
+  process.env.NODE_ENV === "development"
+    ? "http://localhost:4000"
+    : "https://api.kupipodary.nomorepartiesco.ru";
 
 export const MINIMUM_PASSWORD_LENGTH = 3;
 export const MINIMUM_USERNAME_LENGTH = 3;
