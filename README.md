@@ -1,16 +1,25 @@
 # Проект: "Докеризация приложения"
 
-## Клонирование проекта:
-```
-git clone git@github.com:AzatF2020/web-plus-docker-compose.git
-```
+## Как найти:
+- IP: 109.196.102.119
+- Frontend: [https://kupipodary.nomorepartiesco.ru](https://kupipodary.nomorepartiesco.ru)
+- Backend: [https://api.kupipodary.nomorepartiesco.ru](https://api.kupipodary.nomorepartiesco.ru)
 
 ## SSH подключение к серверу:
 ```
 ssh root@109.196.102.119
 ```
+Путь к папке проекта при подключении по ssh:
+```
+cd ~/web-plus-docker-compose 
+```
 
-## Развернуть проект локально (PROD)
+## Клонирование проекта локально:
+```
+git clone git@github.com:AzatF2020/web-plus-docker-compose.git
+```
+
+## Развернуть проект локально (PROD):
 
 ```
 make build && make up
@@ -24,7 +33,7 @@ make build && make up
 - ```make bash_backend # Перейти в bash терминал backend```
 
 --------
-## Развернуть проект локально (DEV)
+## Развернуть проект локально (DEV):
 ```
 make build_dev && make up_dev
 ```
