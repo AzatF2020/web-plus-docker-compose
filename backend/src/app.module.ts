@@ -13,7 +13,6 @@ import { AcceptLanguageResolver, I18nModule, QueryResolver } from 'nestjs-i18n';
 import { WishesModule } from './wishes/wishes.module';
 import { WishlistsModule } from './wishlists/wishlists.module';
 import * as path from 'path';
-
 @Module({
   imports: [
     ConfigModule.forRoot({

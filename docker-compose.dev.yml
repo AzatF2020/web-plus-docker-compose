@@ -7,7 +7,7 @@ services:
     build:
       context: backend
       dockerfile: Dockerfile
-      target: runner
+      target: development
     ports:
       - "3001:3001"
     env_file:
@@ -15,7 +15,10 @@ services:
     depends_on:
       - db
     networks:
-      - app-network
+      - app-network-dev
+    volumes:
+      - ./backend:/app
+      - /app/node_modules
 
   db:
     image: postgres:15-alpine
@@ -32,26 +35,25 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data/
     networks:
-      - app-network
+      - app-network-dev
 
   frontend:
     container_name: frontend
     image: frontend-compose-kupipodary
     restart: always
     networks:
-      - frontend-network
+      - frontend-network-dev
     build:
       context: frontend
       dockerfile: Dockerfile
-      target: runner
     ports:
       - "8080:80"
 
 networks:
-  app-network:
+  app-network-dev:
     driver: bridge
 
-  frontend-network:
+  frontend-network-dev:
     driver: bridge
 
 volumes:
